@@ -1,0 +1,57 @@
+<div class="w3-container">
+	<h3>Create New User:</h3>
+	
+	<label>Photo Upload:</label>
+	<form ref='uploadForm' 
+			_id='uploadForm' 
+			action='http://localhost:8080/upload' 
+			method='post' 
+			encType="multipart/form-data">
+				<input type="file" name="sampleFile" />
+				<input type='submit' value='Upload!' />
+	</form>
+	<!--<input type="file" ng-model="sampleFile" />-->
+	<br>
+
+	<input class="w3-input w3-border" type="hidden" ng-model="_id" ng-disabled="edit">
+	<br>
+	<label>Name:</label>
+	<input class="w3-input w3-border" type="text" ng-model="name" ng-disabled="!edit" placeholder="Name">
+	<br>
+	<label>Title:</label>
+	<input class="w3-input w3-border" type="text" ng-model="title" ng-disabled="!edit" placeholder="Title">
+	<br>
+	<label>Sex:</label>
+	<input class="w3-input w3-border" type="text" ng-model="sex" ng-disabled="!edit" placeholder="Sex">
+	<br>
+	<label>Start Date:</label>
+	<input class="w3-input w3-border" type="text" ng-model="startDate" ng-disabled="!edit" placeholder="Start Date">
+	<br>
+	<label>Office Phone:</label>
+	<input class="w3-input w3-border" type="text" ng-model="officePhone" ng-disabled="!edit" placeholder="Office Phone">
+	<br>
+	<label>Cell Phone:</label>
+	<input class="w3-input w3-border" type="text" ng-model="cellPhone" ng-disabled="!edit" placeholder="Cell Phone">
+	<br>
+	<label>SMS:</label>
+	<input class="w3-input w3-border" type="text" ng-model="SMS" ng-disabled="!edit" placeholder="SMS">
+	<br>
+	<label>Email:</label>
+	<input class="w3-input w3-border" type="text" ng-model="email" ng-disabled="!edit" placeholder="Email">
+	<br>
+	<label>Manager:</label>
+	<select name="singleSelect" ng-model="manager" ng-disabled="!edit">
+		<option ng-repeat="user in users">{{ user.name }}/{{ user._id }}</option>
+	</select>
+	<br>
+	<!--<label>Direct Reports:</label>
+	<input class="w3-input w3-border" type="text" ng-model="directReports" ng-disabled="!edit" placeholder="Direct Reports">
+	<br>-->
+	<label>Password:</label>
+	<input class="w3-input w3-border" type="password" ng-model="passw1" placeholder="Password">
+	<br>
+	<label>Repeat:</label>
+	<input class="w3-input w3-border" type="password" ng-model="passw2" placeholder="Repeat Password">
+	<br>
+	<button class="w3-btn w3-green w3-ripple" ng-click="saveUser(_id)" ng-disabled="error || incomplete">&#10004; Save Changes</button>
+</div>

@@ -1,0 +1,48 @@
+<div class="w3-container">
+	<h3>Users</h3>
+	<label>Search</label>
+	<input type="text" ng-model="search" placeholder="Search">
+	<div infinite-scroll="getMoreData()" infinite-scroll-distance="0" >
+		<table class="w3-table w3-bordered w3-striped">
+			<tr>
+				<th>Edit</th>
+				<th>Delete</th>
+				<th>Photo</th>
+				<th ng-click="orderByMe('name')">Name</th>
+				<th ng-click="orderByMe('title')">Title</th>
+				<th ng-click="orderByMe('sex')">Sex</th>
+				<th ng-click="orderByMe('startDate')">Start Date</th>
+				<th ng-click="orderByMe('officePhone')">Office Phone</th>
+				<th ng-click="orderByMe('cellPhone')">Cell Phone</th>
+				<th ng-click="orderByMe('SMS')">SMS</th>
+				<th ng-click="orderByMe('email')">Email</th>
+				<th ng-click="orderByMe('manager')">Manager</th>
+				<th ng-click="orderByMe('directReports')">Direct Reports</th>
+			</tr>
+			<tr ng-repeat="user in scrollUsers | filter:search | orderBy:myOrderBy">
+				<td>
+					<a href="#/edit/{{user._id}}"><button class="w3-btn w3-ripple">&#9998; Edit</button></a>				
+				</td>
+				<td>
+					<a href="#/delete/{{user._id}}"><button class="w3-btn w3-ripple w3-red">&#10060; Delete</button></a>
+				</td>
+				<td><img style="width:40px" src="{{ user.image }}"/></td>
+				<td>{{ user.name }}</td>
+				<td>{{ user.title }}</td>
+				<td>{{ user.sex }}</td>
+				<td>{{ user.startDate }}</td>
+				<td><a style="text-decoration: underline;" href="skype:+1-510-7101858?call">{{ user.officePhone }}</a></td>
+				<td><a style="text-decoration: underline;" href="skype:+1-510-7101858?call">{{ user.cellPhone }}</a></td>
+				<td><a style="text-decoration: underline;" href="skype:+1-510-7101858?call">{{ user.SMS }}</a></td>
+				<td><a style="text-decoration: underline;" href="mailto:leowanglion@gmail.com?">{{ user.email }}</a></td>
+				<td><a style="text-decoration: underline;" href="#/listManager/{{user.manager._id}}">{{ user.manager.name }}</a></td>
+				<td><a style="text-decoration: underline;" href="#/listDirectReports/{{user._id}}">{{ user.directReports.length }}</a></td>
+			</tr>
+		</table>
+	</div>
+	<br>
+	
+	<a href="#/create"><button class="w3-btn w3-green w3-ripple">&#9998; Create New User</button></a>
+</div>
+
+

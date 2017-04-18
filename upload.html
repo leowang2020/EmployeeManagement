@@ -1,0 +1,32 @@
+<!--<html>
+<head>
+<title>Upload Example</title>
+</head>
+<body>
+
+<form id="uploadForm"
+      enctype="multipart/form-data"
+      action="/upload"
+      method="post">
+  <input type="file" id="userPhotoInput" name="displayImage" />
+  <input type="submit" value="Submit">
+</form>
+
+<span id="status" />
+<img id="uploadedImage" />
+
+
+</body>
+</html>-->
+
+<html>
+    <body>
+        <form  
+            action='http://localhost:8080/upload' 
+            method='post' 
+            encType="multipart/form-data">
+                <input type="file" name="sampleFile" />
+                <input type='submit' value='Upload!' />
+        </form>		
+    </body>
+</html>
